@@ -18,3 +18,5 @@ For yarn users
 ## Running the application locally
 
 Either use `npm start` or `yarn start` depending on your depedencies installer.
+
+Then proceed to open the webapp in your browser [http://localhost:3000/](http://localhost:3000/)
