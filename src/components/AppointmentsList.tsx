@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import ApptInformation from "./ApptInformation";
+import AppointmentInformation from "./AppointmentInformation";
 import apptsData from "../data.json";
 import Modal from "../shared/Modal";
 import DatePicker from "./DatePicker";
@@ -7,11 +7,11 @@ import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import {
   initData,
   confirmAppointment,
-  rescheduleAppointment,
 } from "../app/appointmentSlice";
 import "./Styles.css";
-
 import timeFormat from "date-fns/format";
+
+
 
 const AppointmentsList: React.FC = () => {
   // This is the modal reference. Includes its many functions (such as open and close);
@@ -32,15 +32,17 @@ const AppointmentsList: React.FC = () => {
   useEffect(() => {
     // Simulates FETCH data from local file.
     // Can't fetch from URL as the API does not allow CORS.
+
     setTimeout(() => {
       dispatch(initData(apptsData));
     }, 1000);
+
   }, []);
 
   useEffect(() => {
+
     if (apptData.length === 0 && appointmentsData != null) {
       const totalPages = Math.ceil(appointmentsData.length / paginationLimit);
-      paginateList();
       setTotalPages(totalPages);
     }
 
@@ -48,13 +50,16 @@ const AppointmentsList: React.FC = () => {
       setApptData(appointmentsData);
       paginateList();
     }
+
   }, [appointmentsData]);
+
 
   useEffect(() => {
     if (appointmentsData != null) {
       paginateList();
     }
   }, [paginationPage, paginationLimit]);
+
 
   // begin: Pagination functions
   const paginateList = () => {
@@ -94,7 +99,7 @@ const AppointmentsList: React.FC = () => {
         : "Would you like to unconfirm this schedule?";
     const confirmation = type === "confirm" ? true : false;
     const r = window.confirm(alertMessage);
-    
+  
     // If use cancels the action, it won't go further than here.
     if (!r) return;
 
@@ -179,7 +184,7 @@ const AppointmentsList: React.FC = () => {
         <div>
           {apptData.map((appt) => {
             return (
-              <ApptInformation
+              <AppointmentInformation
                 appt={appt}
                 key={appt.appointmentId}
                 openModal={openModal}

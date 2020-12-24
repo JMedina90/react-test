@@ -1,10 +1,5 @@
 import React from "react";
 import timeFormat from "date-fns/format";
-import {
-  confirmAppointment,
-  rescheduleAppointment,
-} from "../app/appointmentSlice";
-import { useDispatch } from "react-redux";
 import "./Styles.css";
 
 interface Appts {
@@ -36,13 +31,10 @@ const ApptInformation: React.FC<{
 }> = (props) => {
   const {
     animal,
-    animal_AnimalId,
     appointmentId,
     appointmentType,
-    createDateTime,
     requestedDateTimeOffset,
     user,
-    user_UserId,
     confirm,
   } = props.appt;
 

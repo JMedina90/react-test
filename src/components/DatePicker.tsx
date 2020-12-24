@@ -19,6 +19,7 @@ const DatePickerComponent = (props: any) => {
         timeInputLabel="Time:"
         dateFormat="MM/dd/yyyy h:mm aa"
         showTimeInput
+        required={true}
       />
       <div>
         <button onClick={() => props.onPressRescheduleButton(startDate)}>

@@ -6,6 +6,7 @@ import React, {
 import ReactDom from "react-dom";
 
 const Modal: React.FC<any> = forwardRef(({ children }, ref) => {
+  
   const el = document.getElementById("modal-root"); // The modal is injected in the index.html file. #modal-root div
   const [display, setDisplay] = useState(false);
 
